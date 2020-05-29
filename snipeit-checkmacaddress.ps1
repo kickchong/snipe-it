@@ -8,11 +8,15 @@ $headers = @{
 
 $maca = "b8-08-cf-30-dd-b8"
 
+#$x is initial define as total number of record in Snite IT
+
 for($x=1380;$x-gt1; $x=$x-1) {
     $uri = 'https://develop.snipeitapp.com/api/v1/hardware/'+$x
+#$cf is define as custom fields of Mac address value
     $cf = (Invoke-RestMethod -Uri $uri -Method Get -Headers $headers).custom_fields."MAC Address".value 
     echo $cf
     if ($cf -eq $maca) {
+#This return with equipment maid ID who match MAC address 
         (Invoke-RestMethod -Uri $uri -Method Get -Headers $headers).id
     }
     else {
