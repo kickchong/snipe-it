@@ -16,7 +16,7 @@ for($x=1380;$x-gt1; $x=$x-1) {
     $cf = (Invoke-RestMethod -Uri $uri -Method Get -Headers $headers).custom_fields."MAC Address".value 
     echo $cf
     if ($cf -eq $maca) {
-#This return with equipment maid ID who match MAC address 
+#This return with equipment main ID who match MAC address 
         (Invoke-RestMethod -Uri $uri -Method Get -Headers $headers).id
     }
     else {
